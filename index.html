@@ -2,32 +2,88 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>検索</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>60秒人生ゲーム</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page-shell">
-    <header class="search-header">
-      <div class="brand">Search</div>
-      <form id="searchForm" class="search-box-wrap">
-        <input id="searchInput" class="search-input" autocomplete="off" spellcheck="false" value="" aria-label="検索" />
-        <button class="search-button" type="submit">検索</button>
-      </form>
-    </header>
+  <main id="app" class="app phase-intro" aria-label="60秒人生ゲーム">
+    <div class="sky">
+      <div class="sun"></div>
+      <div class="stars"></div>
+      <div class="hero-light" aria-hidden="true">
+        <div class="giant-hero">
+          <span class="gh-head"></span><span class="gh-body"></span><span class="gh-arm left"></span><span class="gh-arm right"></span>
+        </div>
+      </div>
+    </div>
 
-    <section id="resultMeta" class="result-meta hidden"></section>
-    <section id="results" class="results hidden" aria-live="polite"></section>
+    <div class="world">
+      <div class="mountain m1"></div>
+      <div class="mountain m2"></div>
+      <div class="city"></div>
+      <div class="stadium">
+        <div class="goal"></div>
+        <div class="stands"></div>
+      </div>
+      <div class="story-zone">
+        <div class="page p1">「行く」</div>
+        <div class="page p2">「戻る」</div>
+        <div class="page p3">「続ける」</div>
+        <div class="branch b1"></div><div class="branch b2"></div>
+      </div>
+      <div class="road"></div>
+      <div class="grass g1"></div><div class="grass g2"></div>
+      <div class="soccer-ball" aria-hidden="true"></div>
+    </div>
+
+    <section class="characters" aria-hidden="true">
+      <div id="player" class="pixel-person player walking">
+        <span class="head"></span><span class="hair"></span><span class="body"></span>
+        <span class="arm arm-l"></span><span class="arm arm-r"></span>
+        <span class="leg leg-l"></span><span class="leg leg-r"></span>
+        <span class="scarf"></span><span class="boot"></span>
+      </div>
+      <div id="partner" class="pixel-person partner">
+        <span class="head"></span><span class="hair"></span><span class="body"></span>
+        <span class="arm arm-l"></span><span class="arm arm-r"></span>
+        <span class="leg leg-l"></span><span class="leg leg-r"></span>
+      </div>
+    </section>
+
+    <div class="memory-icons" aria-hidden="true">
+      <span class="mi hero">✦</span>
+      <span class="mi football">●</span>
+      <span class="mi script">A</span>
+      <span class="mi heart">♥</span>
+    </div>
+
+    <section class="copy" aria-live="polite">
+      <div id="chapter" class="chapter">PROLOGUE</div>
+      <h1 id="headline">まだ、何者でもなかった。</h1>
+      <p id="subline">ただ一本道を歩いていた。</p>
+    </section>
+
+    <div class="progress" aria-hidden="true"><div id="progressBar"></div></div>
+
+    <section id="startScreen" class="overlay start-screen">
+      <div class="title-mark">60 SECOND LIFE</div>
+      <h2>好きなものが、私をつくった。</h2>
+      <p>約60秒の自動再生です。縦画面での録画を想定しています。</p>
+      <button id="startBtn">START</button>
+    </section>
+
+    <section id="endScreen" class="overlay end-screen hidden">
+      <div class="end-copy">
+        <p>好きなものに出会うたび、</p>
+        <h2>人生は少しずつ変わっていった。</h2>
+        <p class="final-line">そして、今は二人で歩いている。</p>
+      </div>
+      <button id="replayBtn">REPLAY</button>
+    </section>
   </main>
 
-  <div id="transition" class="transition hidden">
-    <div class="transition-inner">
-      <div class="ls-logo">LAST SEARCH</div>
-      <div class="ls-searchbar"><span id="lsText"></span><span class="caret">|</span></div>
-      <div class="ls-button">検索</div>
-    </div>
-  </div>
-
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
