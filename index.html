@@ -1,77 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Image Viewer</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>検索</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app" class="app">
-    <section id="viewer" class="screen viewer active" aria-live="polite">
-      <div class="fake-browser">
-        <div class="browser-top">
-          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-          <div class="address">local://image/viewer</div>
-        </div>
-        <div class="image-wrap">
-          <img src="cat.jpg" alt="猫の画像" />
-        </div>
-        <div class="meta">
-          <div>CAT_001.jpg</div>
-          <div class="small">1200 × 800 / 画像をクリックして表示</div>
-        </div>
-        <button id="startBtn" class="primary">画像を詳しく見る</button>
-      </div>
-    </section>
+  <main class="page-shell">
+    <header class="search-header">
+      <div class="brand">Search</div>
+      <form id="searchForm" class="search-box-wrap">
+        <input id="searchInput" class="search-input" autocomplete="off" spellcheck="false" value="" aria-label="検索" />
+        <button class="search-button" type="submit">検索</button>
+      </form>
+    </header>
 
-    <section id="crash" class="screen crash">
-      <div class="noise"></div>
-      <div class="crash-center">
-        <div class="error-title">SYSTEM ERROR</div>
-        <div>CRITICAL_FAILURE</div>
-        <div>0x0000005A</div>
-      </div>
-    </section>
-
-    <section id="unauth" class="screen unauth">
-      <div class="alert-box">
-        <div class="warn">!</div>
-        <h1>不正アクセスを検知しました</h1>
-        <p>REMOTE SESSION : UNKNOWN</p>
-        <p>LOCATION : UNRESOLVED</p>
-      </div>
-    </section>
-
-    <section id="ogotaka" class="screen ogotaka">
-      <div class="scanlines"></div>
-      <div class="ogo-small">IDENTIFIER RECEIVED</div>
-      <div class="ogo-title">CODE NAME</div>
-      <div class="ogo-name">OGOTAKA</div>
-    </section>
-
-    <section id="logs" class="screen logs">
-      <pre id="logText"></pre>
-    </section>
-
-    <section id="access" class="screen access">
-      <div class="access-title">LAST SEARCHへアクセスします</div>
-      <div class="bar"><div id="barFill"></div></div>
-      <div id="percent">0%</div>
-    </section>
-
-    <section id="lastsearch" class="screen lastsearch">
-      <div class="login">ログイン中</div>
-      <div class="brand">LAST SEARCH</div>
-      <div class="tagline">あなたへ真実を伝えます</div>
-      <div class="searchbox">
-        <span class="cursor"></span>
-        <span class="searchicon">⌕</span>
-      </div>
-      <div class="foot">すべては、検索から始まる。</div>
-    </section>
+    <section id="resultMeta" class="result-meta hidden"></section>
+    <section id="results" class="results hidden" aria-live="polite"></section>
   </main>
 
-  <script src="script.js"></script>
+  <div id="transition" class="transition hidden">
+    <div class="transition-inner">
+      <div class="ls-logo">LAST SEARCH</div>
+      <div class="ls-searchbar"><span id="lsText"></span><span class="caret">|</span></div>
+      <div class="ls-button">検索</div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
